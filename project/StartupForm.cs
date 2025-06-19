@@ -1,4 +1,6 @@
 
+using project;
+using project.ViewAdmin;
 using System;
 using System.Windows.Forms;
 
@@ -9,18 +11,34 @@ namespace ADP_Bakery
         public StartupForm()
         {
             InitializeComponent();
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
-        private void btnKonsumen_Click(object sender, EventArgs e)
+        private void btnAdmin_Click(object sender, EventArgs e)
         {
-            KonsumenStartForm konsumenForm = new KonsumenStartForm();
-            konsumenForm.Show();
+            LoginAdmin admin= new LoginAdmin();
             this.Hide();
+            admin.ShowDialog();
+            this.Close();
         }
 
-        private void btnKaryawan_Click(object sender, EventArgs e)
+        private void btnCustomer_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Fitur login karyawan belum tersedia.");
+            LoginCustomer customer = new LoginCustomer();
+            this.Hide();
+            customer.ShowDialog();
+            this.Close();
+        }
+
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            Register register = new Register();
+            this.Hide();
+            register.ShowDialog();
+            this.Close();
         }
     }
 }
